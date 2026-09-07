@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euo pipefail
+
+# blog-site は public リポジトリである。秘密情報が混ざったまま
+# commit されることを防ぐ。gitleaks は devcontainer が導入する。
+if ! command -v gitleaks >/dev/null 2>&1; then
+    echo "gitleaks が見つからないため走査を省略した。" >&2
+    echo "devcontainer の外で作業している可能性がある。" >&2
+    exit 0
+fi
+
+gitleaks git --pre-commit --staged --redact --no-banner
