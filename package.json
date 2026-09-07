@@ -1,0 +1,10 @@
+{
+  "name": "blog-site",
+  "version": "0.1.0",
+  "description": "usaturn の個人ブログ",
+  "private": true,
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}

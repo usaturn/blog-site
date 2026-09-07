@@ -1,0 +1,16 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "blog-site",
+	"compatibility_date": "2026-09-07",
+	// 独自ドメインと workers.dev の二重公開を避ける
+	"workers_dev": false,
+	"assets": {
+		"directory": "./_build/html",
+		// 一致するアセットが無いとき、最も近い 404.html を 404 で返す
+		"not_found_handling": "404-page"
+	},
+	"routes": [
+		{ "pattern": "blog.usaturn.net", "custom_domain": true }
+	],
+	"observability": { "enabled": true }
+}
