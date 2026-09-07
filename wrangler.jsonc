@@ -1,19 +1,10 @@
 {
 	"$schema": "./node_modules/wrangler/config-schema.json",
-	"name": "blog-site",
+	// ダッシュボード上の Pages プロジェクト名と一致させる。
+	"name": "blog",
 	"compatibility_date": "2026-09-07",
-	// 独自ドメインと workers.dev の二重公開を避ける
-	"workers_dev": false,
-	// preview_urls の既定は workers_dev に一致する（wrangler v4.44.0 以降）。
-	// 非本番ブランチの preview URL を使うため明示的に有効にする。
-	"preview_urls": true,
-	"assets": {
-		"directory": "./_build/html",
-		// 一致するアセットが無いとき、最も近い 404.html を 404 で返す
-		"not_found_handling": "404-page"
-	},
-	"routes": [
-		{ "pattern": "blog.usaturn.net", "custom_domain": true }
-	],
-	"observability": { "enabled": true }
+	// Pages のビルド出力ディレクトリ。Workers の assets.directory に相当する。
+	// このファイルを置くと、ここで指定した項目はダッシュボードで編集できなくなる
+	// （設定の正本がリポジトリ側に移る）。
+	"pages_build_output_dir": "./_build/html"
 }

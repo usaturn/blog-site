@@ -1,6 +1,6 @@
 # blog-site
 
-usaturn の個人ブログ。Sphinx と [MaatLog](https://github.com/usaturn/maatlog) で生成し、Cloudflare Workers で配信する。
+usaturn の個人ブログ。Sphinx と [MaatLog](https://github.com/usaturn/maatlog) で生成し、Cloudflare Pages で配信する。
 
 公開先: <https://blog.usaturn.net/>
 
@@ -14,8 +14,10 @@ Python の実行は常に uv 経由で行う。`python` や `pip` を直接呼�
 bash scripts/build.sh
 ```
 
-Cloudflare Workers Builds も同じスクリプトを実行する。
+Cloudflare Pages のビルドも同じスクリプトを実行する。
 uv がビルド環境に無ければ自前で導入し、`.python-version` に従って Python 3.14 を取得する。
+
+出力先は `_build/html` である。`wrangler.jsonc` の `pages_build_output_dir` がこれを指す。
 
 ## 執筆中のプレビュー
 
@@ -23,16 +25,21 @@ uv がビルド環境に無ければ自前で導入し、`.python-version` に�
 uv run sphinx-autobuild source _build/html --host 0.0.0.0 --port 8000
 ```
 
-## Workers としての配信確認
+## Pages としての配信確認
 
-`not_found_handling` やアセットのルーティングは `sphinx-autobuild` では再現されない。
+URL の正規化や 404 の扱いは `sphinx-autobuild` では再現されない。
 配信の挙動を確かめるときはこちらを使う。
 
 ```
 npm ci
 bash scripts/build.sh
-npx wrangler dev
+npx wrangler pages dev
 ```
+
+既定のポートは **8788** である（Workers の `wrangler dev` は 8787 なので混同しない）。
+
+Pages は拡張子なしの URL を正とする。`/posts/hello.html` は `/posts/hello` へ 308 で誘導される。
+存在しないパスには `404.html` が 404 で返る。Pages が `404.html` の存在を自動で検出するため、設定は要らない。
 
 ## 秘密情報の混入防止
 
@@ -49,4 +56,6 @@ git config core.hooksPath .githooks
 ## 公開
 
 `main` への push で `blog.usaturn.net` に本番公開される。
-それ以外のブランチへの push では preview URL が生成され、PR にコメントされる。
+それ以外のブランチへの push ではプレビューデプロイが作られ、ブランチ名に基づく安定した URL が PR にコメントされる。
+
+独自ドメインは Cloudflare のネームサーバを必要としない。権威 DNS が外部にあるままでも、`blog` の CNAME を Pages プロジェクトの `*.pages.dev` ホストへ向ければ有効になる。
