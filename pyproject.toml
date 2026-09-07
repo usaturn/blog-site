@@ -2,7 +2,7 @@
 name = "blog-site"
 version = "0.1.0"
 description = "usaturn の個人ブログ"
-requires-python = ">=3.14"
+requires-python = ">=3.14,<3.15"
 dependencies = [
     "maatlog>=0.4.0",
 ]

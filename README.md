@@ -15,9 +15,12 @@ bash scripts/build.sh
 ```
 
 Cloudflare Pages のビルドも同じスクリプトを実行する。
-uv がビルド環境に無ければ自前で導入し、`.python-version` に従って Python 3.14 を取得する。
+uv がビルド環境に無ければ自前で導入し、`pyproject.toml` の `requires-python` に従って Python 3.14 を取得する。
+`.python-version` は**置かない**。置くと Cloudflare 側が Python 3.14 をソースからコンパイルし、ビルドが 2 分ほど長くなる。
 
-出力先は `_build/html` である。`wrangler.jsonc` の `pages_build_output_dir` がこれを指す。
+出力先は `_build/html` である。Cloudflare 側のビルド出力ディレクトリもこの値に設定する。
+
+このリポジトリに `wrangler.jsonc` は**置かない**。置くと Pages がビルド設定をそこから読み、ダッシュボードのビルド変数（`SKIP_DEPENDENCY_INSTALL` など）を無視するためである。
 
 ## 執筆中のプレビュー
 
@@ -33,9 +36,10 @@ URL の正規化や 404 の扱いは `sphinx-autobuild` では再現されない
 ```
 npm ci
 bash scripts/build.sh
-npx wrangler pages dev
+npx wrangler pages dev _build/html
 ```
 
+設定ファイルを置いていないため、配信するディレクトリを引数で渡す。
 既定のポートは **8788** である（Workers の `wrangler dev` は 8787 なので混同しない）。
 
 Pages は拡張子なしの URL を正とする。`/posts/hello.html` は `/posts/hello` へ 308 で誘導される。
