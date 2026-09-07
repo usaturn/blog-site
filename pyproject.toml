@@ -14,3 +14,13 @@ dev = [
 
 [tool.uv]
 package = false
+
+# Cloudflare Pages はリポジトリに pyproject.toml を見つけると、ビルドコマンドの
+# 手前で `pip install .` を実行する。このリポジトリは Python パッケージではないが、
+# [tool.uv] package = false は uv だけが解釈する指定であり pip には効かない。
+# その結果 setuptools が source/ と node_modules/ をパッケージ候補として拾い、
+# "Multiple top-level packages discovered in a flat-layout" で中断する。
+# 空のパッケージ一覧を明示して自動探索を止める。
+# 依存の導入は scripts/build.sh の `uv sync --frozen --no-dev` が担う。
+[tool.setuptools]
+packages = []
