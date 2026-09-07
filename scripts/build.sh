@@ -11,5 +11,7 @@ fi
 
 # --frozen は uv.lock と pyproject.toml のずれをビルド失敗として扱う。
 # 本番で暗黙に依存バージョンが動くことを防ぐ。
-uv sync --frozen
+# --no-dev は sphinx-autobuild とその依存を除く。手元のプレビュー専用であり
+# 本番のビルドには要らない。
+uv sync --frozen --no-dev
 uv run sphinx-build -b html source _build/html

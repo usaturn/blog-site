@@ -34,6 +34,18 @@ bash scripts/build.sh
 npx wrangler dev
 ```
 
+## 秘密情報の混入防止
+
+`.githooks/pre-commit` が gitleaks で staged の差分を走査し、秘密情報が混ざったコミットを止める。
+
+このフックは `core.hooksPath` を設定して初めて有効になる。開発環境リポジトリの Dev Container はコンテナ作成時にこれを設定するが、**このリポジトリを単体で clone した場合は自分で設定する必要がある**。
+
+```
+git config core.hooksPath .githooks
+```
+
+設定しないとフックは呼ばれず、警告も出ない。また gitleaks が PATH に無い環境では、フックは走査を省略して commit を通す。
+
 ## 公開
 
 `main` への push で `blog.usaturn.net` に本番公開される。
