@@ -14,4 +14,8 @@ fi
 # --no-dev は sphinx-autobuild とその依存を除く。手元のプレビュー専用であり
 # 本番のビルドには要らない。
 uv sync --frozen --no-dev
-uv run sphinx-build -b html source _build/html
+# 以前のビルドで公開ディレクトリ内に残ったキャッシュも除去する。
+if [ -d _build/html/.doctrees ]; then
+    rm -r -- _build/html/.doctrees
+fi
+uv run sphinx-build -d _build/doctrees -b html source _build/html

@@ -35,13 +35,15 @@ MaatLog 0.4.0 と現在のビルド環境を使用し、旧リポジトリの開
 旧 `images/` には上記 2 画像のみがあり、独立したバナー画像はない。
 旧 `_static/custom.css` のメタデータ隠蔽は現在の MaatLog では不要で、本文の正当な field-list を消す危険もあるため移植しない。
 旧テーマ依存の背景色・文字色も標準テーマと干渉するため移植しない。独自 CSS は追加していない。
-旧 `conf.py` の未使用拡張・`column` ディレクティブ、旧 `_templates/layout.html` の Universal Analytics も移植しない。
+旧 `conf.py` の拡張のうち、現行構成で使用するのは `maatlog` のみである。
+旧サイトでコードブロックのコピーボタンを提供していた `sphinx_copybutton` は移植しておらず、現行構成ではそのボタンを提供しない。
+`column` ディレクティブ、旧 `_templates/layout.html` の Universal Analytics も移植しない。
 `.devcontainer/`、Makefile、pyproject.toml、uv.lock、旧スクリプト、CLAUDE.md、.mcp.json は対象外。
 現行の疎通確認記事 `posts/hello.rst` は実記事への置換に伴い削除した。
 
 ## RST とリンクの調整
 
-- 本文の句点・改行、インライン記法の空白、見出し幅を `wabun-rst-ulint` で現行規約に合わせた
+- 本文の句点・改行、インライン記法の空白、見出し幅に `wabun-rst-ulint` の自動整形を適用した。句点・改行には検査漏れが残っている（検証記録を参照）
 - 相対画像参照、`:ref:`、toctree、literalinclude、download を維持した
 - pyhack、pyhackcon、Secret Manager の埋め込み参照に不足していた `_` を補い、誤ったローカルリンク 3 件を修正した
 - サクラエディタの公式サイト・ヘルプ・ダウンロード先を現行の公式サイト／GitHub Releases へ更新した
@@ -95,7 +97,8 @@ Cloudflare Pages は `.html` 付き URL を拡張子なしへリダイレクト�
 ## 検証記録
 
 - `uv run sphinx-build -b html -W --keep-going -n -E source _build/html`: warning / error なし
-- `wabun-rst-ulint` の `inline-spacing` / `sentence-breaks` / `heading-width`: 違反なし
+- `wabun-rst-ulint` の `inline-spacing` / `heading-width`: 違反なし
+- `wabun-rst-ulint 0.0.1` の `sentence-breaks`: 終了コード 0。ただし、インラインリンクを含む行以降が検査されないケースを確認した。`contents/2016/start_nspawn_on_gentoo.rst` の「はじめに」には 1 行に複数文が残っており、全体の句点・改行の規約適合は確認できていない
 - 生成 HTML 84 ページの内部リンク・画像・スクリプト・CSS・アンカー 6,529 件: 参照先の欠落なし
 - ローカル Pages + Chromium: 全 34 記事、129 画像表示、4 ページのアーカイブから 34 記事へ到達、ZIP のバイト一致、旧 `.html` URL の 308、未存在 URL の 404 を確認
 - 幅 1440 / 390 px でトップ・プロフィール・各年代の代表記事 7 ページを確認。横スクロールなし、ブラウザ例外なし

@@ -42,7 +42,7 @@ npx wrangler pages dev _build/html
 設定ファイルを置いていないため、配信するディレクトリを引数で渡す。
 既定のポートは **8788** である（Workers の `wrangler dev` は 8787 なので混同しない）。
 
-Pages は拡張子なしの URL を正とする。`/posts/hello.html` は `/posts/hello` へ 308 で誘導される。
+Pages は拡張子なしの URL を正とする。`/contents/2012/first_time.html` は `/contents/2012/first_time` へ 308 で誘導される。
 存在しないパスには `404.html` が 404 で返る。Pages が `404.html` の存在を自動で検出するため、設定は要らない。
 
 ## 秘密情報の混入防止
