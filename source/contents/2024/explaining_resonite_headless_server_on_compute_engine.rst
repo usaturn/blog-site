@@ -166,7 +166,7 @@ udp/49151～49160 を想定しています ::
       "keepOriginalRoles": false,
 
    手順通りに実行した場合、49151 から 49160 の間で設定してください。
-   わかる人は ``--allow=udp:49151-49160`` の数字を 1025 ～ 65535 の間で使用していないとわかっている番号にしても構いません。
+   わかる人は ``--allow=udp:49151-49160`` の数字を 1025 ～ 65535 の間で使用していないとわかっている番号にしても構いません
 
 Config をシークレットに格納する
 ===============================
@@ -199,8 +199,7 @@ Config をシークレットに格納する
     gcloud secrets versions access latest --secret ${HEADLESS_CONFIG_SECRET}
 
 .. note:: `Secret Manager`_ は API キー、パスワード、証明書などの機密情報を安全に保存・管理するためのサービスです。
-          以下の特徴がありますが、ここでは専ら Config.json をローカルで書き換えてクラウドに保存し、
-          ヘッドレスサーバが起動するごとにシークレットから読みだすという目的の為に使用しています。
+          以下の特徴がありますが、ここでは専ら Config.json をローカルで書き換えてクラウドに保存し、 ヘッドレスサーバが起動するごとにシークレットから読みだすという目的の為に使用しています
 
           - 暗号化されたストレージで機密情報を保存
           - バージョン管理により、シークレットの履歴管理が可能
@@ -223,8 +222,8 @@ Config をシークレットに格納する
    .. note:: config.json を格納したシークレットは、そのままでは GCE インスタンスから読みだすことができません。
              GCE インスタンスに割り当てられている Google Service Account をシークレットの IAM ポリシーに紐づけることにより、GCE インスタンス内部から対象のシークレットを読みだすことができます
 
-             GCE インスタンス起動時にデフォルトの Google Service Account [PROJECT_NUMBER]-compute@developer.gserviceaccount.com が割り当てられていますが、
-             ベストプラクティスは新しく Service Account を作って割り当てる、ということになっています。本手順は標準で割り当てられているものをそのまま使っています
+             GCE インスタンス起動時にデフォルトの Google Service Account [PROJECT_NUMBER]-compute@developer.gserviceaccount.com が割り当てられていますが、 ベストプラクティスは新しく Service Account を作って割り当てる、ということになっています。
+             本手順は標準で割り当てられているものをそのまま使っています
 
    .. note:: インスタンスを作成した後であれば、 Google Service Account は下記コマンドで確認できます
 
@@ -296,7 +295,7 @@ resonite Headless Server 用インスタンスを作成する
 
     gcloud compute instances describe ${RESONITE_HEADLESS_SERVER_INSTANCE_NAME} --format="value(status)"
 
-5分程待つと ヘッドレスサーバ_ が起動します。
+5分程待つと ヘッドレスサーバ_ が起動します
 
 ヘッドレスサーバ_ が起動しない場合の調査
 ========================================
@@ -377,6 +376,6 @@ resonite Headless Server 用インスタンスを作成する
    .. note:: GCE インスタンスは使わない時は停止して、必要な時に起動してください。
              停止している間は基本的に課金されませんが、例外として停止中も1日に数円単位でディスク使用料金がかかります
 
-:ref:`明日の記事 <access_a_headless_server_interactive_shell>` へ続きます。
+:ref:`明日の記事 <access_a_headless_server_interactive_shell>` へ続きます
 
 .. include:: /contents/include_files/resonite_headless_link.txt

@@ -17,9 +17,10 @@
 ======
 
 
-.. figure:: ./images/kiban/20160911_165316.jpg
-   :scale: 30%
-   :alt: Alternate Text
+.. figure:: ./images/kiban/preview/20160911_165316.webp
+   :width: 1238
+   :target: /_images/20160911_165316.jpg
+   :alt: AV3000、ゲーム基板、コントローラをハーネスで接続した全体像
 
    接続した際の全体像
 
@@ -36,9 +37,10 @@
 RGB21ピン出力
 =============
 
-.. figure:: ./images/kiban/20160911_165329.jpg
-   :scale: 30%
-   :alt: Alternate Text
+.. figure:: ./images/kiban/preview/20160911_165329.webp
+   :width: 1238
+   :target: /_images/20160911_165329.jpg
+   :alt: AV3000 の映像出力に接続する RGB21 ピンケーブル
 
 こっちの方が画質が良いけど接続方法が限られます
 
@@ -55,9 +57,10 @@ RGB21ピン出力
 ハーネスの接続について
 ======================
 
-.. figure:: ./images/kiban/20160911_165213.jpg
-   :scale: 30%
-   :alt: Alternate Text
+.. figure:: ./images/kiban/preview/20160911_165213.webp
+   :width: 1238
+   :target: /_images/20160911_165213.jpg
+   :alt: AV3000 前面の端子に差し込んだハーネス
 
 とにかく固いです。
 逆差しをしないようによく見て基板を壊さないように強く差し込んでください
@@ -67,9 +70,10 @@ RGB21ピン出力
 ボタン等
 ========
 
-.. figure:: ./images/kiban/zentaizu.jpg
-   :scale: 30%
-   :alt: Alternate Text
+.. figure:: ./images/kiban/preview/zentaizu.webp
+   :width: 1238
+   :target: /_images/zentaizu.jpg
+   :alt: 基板のハーネスから伸びる1P・2Pスタートボタンとクレジットボタン
 
 コントローラ側にスタートボタンやクレジットボタンが付いてない事に注意してください
 
@@ -77,9 +81,10 @@ RGB21ピン出力
 ======================
 
 
-.. figure:: ./images/kiban/start.jpg
-   :scale: 30%
-   :alt: Alternate Text
+.. figure:: ./images/kiban/preview/start.webp
+   :width: 1238
+   :target: /_images/start.jpg
+   :alt: 1Pスタートボタンの黒いケーブルを JAMMA ハーネスの GND に接触させる位置
 
 ごめんなさい、1Pスタートボタンのケーブルが外れてしまったので、1Pスタートについている黒いケーブルの先を基板側の JAMMA ハーネスの GND に接触させながらスタートボタンを押してください。
 本来ならちゃんと半田付けをしなおすところなのですが・・・
@@ -88,17 +93,19 @@ CPシステムⅡについて
 ===================
 
 
-.. figure:: ./images/kiban/20160911_165437.jpg
-   :scale: 30%
-   :alt: Alternate Text
+.. figure:: ./images/kiban/preview/20160911_165437.webp
+   :width: 1238
+   :target: /_images/20160911_165437.jpg
+   :alt: スーパーストリートファイターⅡX の緑色の CPシステムⅡ サブボード
 
 CPシステムⅡ のゲームは「スーパーストリートファイターⅡX」と「ヴァンパイアハンター」をつけてますが、緑色の部分がサブボード、昔の家庭用ゲーム機でいうところのカセットになっていて、下の黒い部分がマザーボードでサブボードを交換してゲームをします。
 交換する際に注意しなければいけないのが、ピンです。
 簡単に折れてしまうので無理に押し込まずにハマったかなという感触があったところで優しく押してあげてください
 
-.. figure:: ./images/kiban/20160911_165739.jpg
-   :scale: 30%
-   :alt: Alternate Text
+.. figure:: ./images/kiban/preview/20160911_165739.webp
+   :width: 1238
+   :target: /_images/20160911_165739.jpg
+   :alt: CPシステムⅡ の黒いマザーボードにあるサブボード接続用コネクタ
 
 
 以上

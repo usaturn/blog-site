@@ -282,16 +282,18 @@ HTMLを生成する
      _sources
      _static
 
-3. 続けて **index.html** をWebブラウザで開いてみましょう。コマンドプロンプトから ``_build\html\index.html`` と打てばWebブラウザでindex.htmlが開きます。
+3. 続けて **index.html** をWebブラウザで開いてみましょう。
+   コマンドプロンプトから ``_build\html\index.html`` と打てばWebブラウザでindex.htmlが開きます
 
    ::
 
      C:\work\sphinx\testdir>_build\html\index.html
 
    .. image:: /contents/2012/images/default_theme.JPG
-      :alt: alternate text
       :align: left
+      :alt: Sphinx の標準テーマで生成したプロジェクトのトップページ
 
-以上でプロジェクトの作成からhtmlの生成まで一通り流しました。明日からはいよいよドキュメントの編集に入ります。
+以上でプロジェクトの作成からhtmlの生成まで一通り流しました。
+明日からはいよいよドキュメントの編集に入ります
 
-※ このアドベントカレンダーについては :ref:`at_the_beginning` を参照して下さい。
+※ このアドベントカレンダーについては :ref:`at_the_beginning` を参照して下さい

@@ -9,18 +9,20 @@
 Gentoo に systemd-nspawn を導入する
 ===================================
 
-この記事は `Gentoo Advent Calendar 2016 <http://www.adventar.org/calendars/1493#list-2016-12-12>`_ の記事です。
+この記事は `Gentoo Advent Calendar 2016 <http://www.adventar.org/calendars/1493#list-2016-12-12>`_ の記事です
 
 はじめに
 ========
 
-systemd-nspawn は systemd 標準で使えるコンテナ環境です。筆者にとって Gentoo を sysytemd で使うメリットの半分以上を占めていると言っても過言ではありません。
-前日のアドベントカレンダーは systemd-nspawn を快適に使う為の Gentoo インストール手順になっています。注意する所は主に 2 点です。
+systemd-nspawn は systemd 標準で使えるコンテナ環境です。
+筆者にとって Gentoo を sysytemd で使うメリットの半分以上を占めていると言っても過言ではありません。
+前日のアドベントカレンダーは systemd-nspawn を快適に使う為の Gentoo インストール手順になっています。
+注意する所は主に 2 点です
 
 - systemd の USE フラグで *importd* を有効にする
 - ファイルシステムに btrfs を使う
 
-今日は systemd-nspawn のコンテナを作成する手順を記載します。
+今日は systemd-nspawn のコンテナを作成する手順を記載します
 
 事前準備
 ========
@@ -252,7 +254,7 @@ sshd 有効化
         Created symlink from /etc/systemd/system/multi-user.target.wants/sshd.service to /usr/lib64/systemd/system/sshd.service.
 
 .. note:: 本手順ではインターフェースに macvlan を利用している為、ホスト環境からコンテナのインターフェースには接続できません。
-          よって ssh 接続をする際は別のマシンからから接続して下さい。
+   よって ssh 接続をする際は別のマシンからから接続して下さい
 
 
 fstab の中身の消去
@@ -285,14 +287,18 @@ fstab の中身の消去
 
   timedatectl set-timezone Asia/Tokyo
 
-Tokyo になった事を確認。また、RTC(hwclock)が UTC と同じ時刻である事を確認 ::
+Tokyo になった事を確認。
+また、RTC(hwclock)が UTC と同じ時刻である事を確認 ::
 
   timedatectl status
 
 
 時刻同期の設定
 --------------
-systemd-timesyncd を有効にする。インターフェース設定に記述したものが使われる。 ::
+systemd-timesyncd を有効にする。
+インターフェース設定に記述したものが使われる
+
+::
 
     systemctl start systemd-timesyncd.service
     systemctl status systemd-timesyncd.service
@@ -327,4 +333,5 @@ eix のインデックス作成 ::
   eix -cI --selected
 
 
-以上で systemd-nspawn のコンテナ作成は完了です。明日は systemd-nspawn コマンドの使い方や便利な設定を紹介します。
+以上で systemd-nspawn のコンテナ作成は完了です。
+明日は systemd-nspawn コマンドの使い方や便利な設定を紹介します

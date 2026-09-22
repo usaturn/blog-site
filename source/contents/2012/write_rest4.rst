@@ -38,8 +38,7 @@ Sphinxで **リテラルブロック** とはプログラムのソースコー�
 
       map(fizzbuzz,range(1,100))
 
-  このように表示されます
-  ::
+  このように表示されます ::
 
       def fizzbuzz(a):
           if not(a%15):
@@ -100,9 +99,9 @@ Sphinxで **リテラルブロック** とはプログラムのソースコー�
 
      map(fizzbuzz,range(1,100))
 
-* 1つのreSTファイルの頭に ``.. highlight:: python`` を入れておくと以降のリテラルブロックはPythonのシンタックスハイライトが適用されます。
+* 1つのreSTファイルの頭に ``.. highlight:: python`` を入れておくと以降のリテラルブロックはPythonのシンタックスハイライトが適用されます
 * ``linenothreshold`` というオプションを付けると行番号が表示されます。
-  ``:linenothreshold: 5`` の場合は5行以上ある場合に行番号が表示されます。
+  ``:linenothreshold: 5`` の場合は5行以上ある場合に行番号が表示されます
 * ``highlight`` や ``code-block`` で使える言語の引数は :doc:`こちら <write_rest5>`
 
 

@@ -1,0 +1,22 @@
+:orphan:
+
+2012 年の記事
+=============
+
+.. toctree::
+   :maxdepth: 1
+
+   /contents/2012/write_rest10
+   /contents/2012/write_rest9
+   /contents/2012/write_rest8
+   /contents/2012/write_rest7
+   /contents/2012/make_on_sakura
+   /contents/2012/write_rest6
+   /contents/2012/write_rest5
+   /contents/2012/write_rest4
+   /contents/2012/write_rest3
+   /contents/2012/write_rest2
+   /contents/2012/write_rest1
+   /contents/2012/writing_tool
+   /contents/2012/start_sphinx_project
+   /contents/2012/first_time

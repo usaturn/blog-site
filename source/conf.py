@@ -3,9 +3,11 @@ author = "usaturn"
 copyright = "2012–2026, usaturn"
 
 language = "ja"
-extensions = ["maatlog"]
+extensions = ["maatlog", "sphinx_copybutton"]
 html_theme = "maatlog-default"
 html_baseurl = "https://blog.usaturn.net/"
+html_link_suffix = ""
+html_extra_path = ["_extra"]
 html_static_path = ["_static"]
 html_logo = "_static/usaturn_logo.png"
 html_favicon = "_static/usaturn_icon.png"
@@ -71,3 +73,13 @@ maatlog_feed_limit = 20
 
 # warning.rst is an include fragment, not a standalone page.
 exclude_patterns = ["_build", "contents/2012/warning.rst"]
+
+
+def set_home_canonical(app, pagename, templatename, context, doctree):
+    # Pages also redirects /index to /, even with extensionless links.
+    if pagename == app.config.root_doc:
+        context["pageurl"] = app.config.html_baseurl
+
+
+def setup(app):
+    app.connect("html-page-context", set_home_canonical)

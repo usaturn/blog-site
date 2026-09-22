@@ -29,7 +29,7 @@
      :language: bash
      :linenos:
 
-* ``language`` オプションを付ける事によりシンタックスハイライトが表示されます。
+* ``language`` オプションを付ける事によりシンタックスハイライトが表示されます
 * ``linenos`` オプションを付ける事により行番号が表示されます
 
 シンタックスハイライトで使える言語
@@ -48,6 +48,6 @@
 
 
 
-明日はSphinxドキュメントを構造化する重要な `toctree <http://sphinx-users.jp/doc10/markup/toctree.html>`_ ディレクティブについて説明します。
+明日はSphinxドキュメントを構造化する重要な `toctree <http://sphinx-users.jp/doc10/markup/toctree.html>`_ ディレクティブについて説明します
 
-※ このアドベントカレンダーについては :ref:`at_the_beginning` を参照して下さい。
+※ このアドベントカレンダーについては :ref:`at_the_beginning` を参照して下さい

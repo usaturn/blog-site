@@ -13,9 +13,7 @@ Google Cloud で resonite ヘッドレスサーバ を構築する
 
 `(2枚目) Resonite Advent Calendar 2024 <https://adventar.org/calendars/10544>`__ 3日目の記事です
 
-この記事は resonite_ の
-`Headless Client(通称ヘッドレスサーバと呼ばれている為、以下ヘッドレスサーバと記載します) <https://wiki.resonite.com/Headless_Client>`__
-を `Google Cloud`_ 上で動かす手順です
+この記事は resonite_ の `Headless Client(通称ヘッドレスサーバと呼ばれている為、以下ヘッドレスサーバと記載します) <https://wiki.resonite.com/Headless_Client>`__ を `Google Cloud`_ 上で動かす手順です
 
 resonite_ は開発スピードが速い為、基本的には最新情報を確認してください。
 本手順は 3 ヶ月程度で使えなくなる可能性があります
@@ -37,7 +35,8 @@ resonite_ は開発スピードが速い為、基本的には最新情報を確�
       winget install Microsoft.DotNet.Runtime.9
 
   .. note:: 手順を実行する為にはヘッドレスサーバの概要を理解しており、ヘッドレスサーバを利用開始する為の条件をクリアしている必要があります。
-            Windows 版を起動することにより理解することが可能です。Linux 版はその時々の不具合でハマることがあるので最低限 Windows の起動が問題ないことを確認してください
+     Windows 版を起動することにより理解することが可能です。
+     Linux 版はその時々の不具合でハマることがあるので最低限 Windows の起動が問題ないことを確認してください
 
 - Linux ディストリビューションでコマンドを打つのに抵抗が無い方(※Ubuntu24.04を使用します)
 - `Google Cloud`_ に興味がある方
@@ -69,9 +68,8 @@ resonite_ は開発スピードが速い為、基本的には最新情報を確�
 - クレジットカードが使える方( `Google Cloud`_ への支払いが発生します)
 
 .. warning:: 起動時間の料金がかかります。
-             本手順を実行し、すぐにインスタンスを停止した場合は数十円かかります。
-             本手順で使っているマシンタイプ(t2d-standard-2)を1か月起動しっぱなしにした場合は、
-             1万2000円程度かかってしまうので、必要な時以外は停止することを忘れないようにしましょう。
+   本手順を実行し、すぐにインスタンスを停止した場合は数十円かかります。
+   本手順で使っているマシンタイプ(t2d-standard-2)を1か月起動しっぱなしにした場合は、 1万2000円程度かかってしまうので、必要な時以外は停止することを忘れないようにしましょう
 
 構築及び設定するクラウドリソース
 ================================
@@ -111,6 +109,7 @@ resonite_ は開発スピードが速い為、基本的には最新情報を確�
 
    .. figure:: images/google_cloud_project.png
       :scale: 30%
+      :alt: Google Cloud で作業対象のプロジェクトを指定する画面
 
 .. _clone_repository:
 
@@ -135,7 +134,7 @@ Steamガードをオフにする
 
 steamcmd を自動でインストールする為に、Steamガードをオフにします。
 一般的にはセキュリティ上、推奨されていないことに留意してください。
-また、使用する各アカウント（Steam アカウントと及び resonite アカウント）はセキュリティ上、 **必ずヘッドレスサーバ専用でクレカ登録せずに** 作成してください。
+また、使用する各アカウント（Steam アカウントと及び resonite アカウント）はセキュリティ上、 **必ずヘッドレスサーバ専用でクレカ登録せずに** 作成してください
 
 #. Windows で Steam を起動します
 #. メニューの **Steam** をクリックし、設定をクリックします
@@ -145,12 +144,13 @@ steamcmd を自動でインストールする為に、Steamガードをオフに
 
    .. figure:: images/steam_gard.png
       :scale: 30%
+      :alt: Steam ガードをオフにする選択画面
 
 #. **Steam ガードを無効化** をクリックします
 #. Steam に登録したメールアドレスへ **Steamガード無効化の確認** というタイトルでメールが届くのでメールを見て **STEAMガードを無効にする** をクリックしてください
 
 .. note:: Steam ガードを有効にしたままでは、steamcmd を自動インストールできない為、無効化しています。
-          サーバ構築後は、Steam ガードを有効に戻すことをお勧めします
+   サーバ構築後は、Steam ガードを有効に戻すことをお勧めします
 
 Google Cloud にインフラを構築する
 =================================
@@ -160,9 +160,9 @@ Google Cloud にインフラを構築する
     cd ~/resonite-headless-infra
     teachme setup-headless-infra.md
 
-ヘッドレスサーバ_ が起動して他のアカウントが参加できたら成功です。
+ヘッドレスサーバ_ が起動して他のアカウントが参加できたら成功です
 
-:ref:`明日の記事 <explaining_resonite_headless_server_on_compute_engine>` へ続きます。
+:ref:`明日の記事 <explaining_resonite_headless_server_on_compute_engine>` へ続きます
 
 環境を削除する
 ==============
@@ -206,8 +206,7 @@ Google Cloud にインフラを構築する
     gcloud projects delete ${PROJECT_ID}
 
 .. note:: プロジェクトを削除した場合、すぐに削除されず 30 日間保存されています。
-          この間に削除を取り消しする場合は
-          `プロジェクトの復元をしてください <https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=ja#restoring_a_project>`__
+   この間に削除を取り消しする場合は `プロジェクトの復元をしてください <https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=ja#restoring_a_project>`__
 
 `Google Cloud`_ のプロジェクトを作成する
 ----------------------------------------
@@ -256,11 +255,13 @@ Google Cloud にインフラを構築する
 
    .. figure:: images/restart_cloudshell.webp
       :scale: 30%
+      :alt: Cloud Shell のメニューから再起動を選択する画面
 
 #. 「VMの状態をクリーンにしたい」にチェックして再起動をクリックする
 
    .. figure:: images/restart_cloudshell_param.webp
       :scale: 30%
+      :alt: Cloud Shell の再起動時に VM の状態をクリーンにする設定
 
 以上です
 

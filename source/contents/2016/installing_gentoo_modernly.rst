@@ -21,12 +21,13 @@ Gentoo のインストールに慣れている人向けに、筆者の手順を�
 インストールの準備をする
 ========================
 
-インストールメディアは `SystemRescueCd <http://www.sysresccd.org/Download>`_ を使用する。
+インストールメディアは `SystemRescueCd <http://www.sysresccd.org/Download>`_ を使用する
 
 BIOSで該当のメディアがブートされるように設定し、インストールメディアをセットしブートする
 
    .. figure:: images/srcd/srcd01.png
       :width: 400
+      :alt: SystemRescueCd の起動メニューで alternative kernel を選ぶ画面
 
       altanative kernel を選択
 
@@ -34,6 +35,7 @@ BIOSで該当のメディアがブートされるように設定し、インス�
 
    .. figure:: images/srcd/srcd02.png
       :width: 400
+      :alt: SystemRescueCd のキーボード選択画面。日本語キーボードは22番
 
       日本語キーボードは 22
 
@@ -41,6 +43,7 @@ BIOSで該当のメディアがブートされるように設定し、インス�
 
    .. figure:: images/srcd/srcd03.png
       :width: 400
+      :alt: SystemRescueCd の起動後に表示される対話シェル
 
 DHCP 環境の場合は下記コマンドでIPアドレスが割り当てられた事を確認する
 
@@ -81,7 +84,7 @@ DHCP 環境の場合は下記コマンドでIPアドレスが割り当てられ�
 
 パーティション設定 (GPT+UEFI)
 =============================
-先にコマンドで調べたストレージデバイスにパーティション、ファイルシステムを作成する。
+先にコマンドで調べたストレージデバイスにパーティション、ファイルシステムを作成する
 
 gdiskコマンドを利用する ::
 
@@ -577,13 +580,17 @@ uefi 変数がカーネルでサポートされていて正しく動作してい
 
   timedatectl set-timezone Asia/Tokyo
 
-Tokyo になった事を確認。また、RTC(hwclock)が UTC と同じ時刻である事を確認 ::
+Tokyo になった事を確認。
+また、RTC(hwclock)が UTC と同じ時刻である事を確認 ::
 
   timedatectl status
 
 時刻同期の設定
 ==============
-systemd-timesyncd を有効にする。インターフェース設定に記述したものが使われる。 ::
+systemd-timesyncd を有効にする。
+インターフェース設定に記述したものが使われる
+
+::
 
     systemctl start systemd-timesyncd.service
     systemctl status systemd-timesyncd.service

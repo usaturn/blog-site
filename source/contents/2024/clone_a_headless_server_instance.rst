@@ -167,8 +167,7 @@ GCE インスタンス内部からシークレットへアクセスできるよ�
             dimensions = region: asia-northeast1
     Try your request in another zone, or view documentation on how to increase quotas: https://cloud.google.com/compute/quotas.
 
-本手順で使っているマシンタイプ **t2d-standard-2** は 1台あたり 2 vCPU なので、
-リージョンあたりの ``T2D_CPUS`` の割り当て（初期値 8）を 4台で使い切ってしまうということのようです。
+本手順で使っているマシンタイプ **t2d-standard-2** は 1台あたり 2 vCPU なので、 リージョンあたりの ``T2D_CPUS`` の割り当て（初期値 8）を 4台で使い切ってしまうということのようです。
 対処方法は以下の3通りが考えられます
 
 別のリージョン・ゾーンで作成する
@@ -243,8 +242,7 @@ Google による審査後（筆者の場合は1営業日程度でした）、承
     rm -rf ${HOME}/.local/share/Steam/steamapps/common/Resonite/Resonite_Data && \
     sudo systemctl start resonite-headless.service
 
-筆者の環境では、上記のコマンドを1回ずつ打ったところ4台中3台は参加できるようになり、
-残りの1台も再度コマンドを打って参加をリトライしていたら、そのうち入れるようになりました
+筆者の環境では、上記のコマンドを1回ずつ打ったところ4台中3台は参加できるようになり、 残りの1台も再度コマンドを打って参加をリトライしていたら、そのうち入れるようになりました
 
 .. note:: サービスの状態確認・操作は下記の通りです
 

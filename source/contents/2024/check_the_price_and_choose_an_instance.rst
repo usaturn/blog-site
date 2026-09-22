@@ -22,17 +22,20 @@
 
    .. figure:: ./images/report_kakin.png
       :scale: 40%
+      :alt: Google Cloud Billing で請求先アカウントを選ぶ画面
 
 #. レポートをクリックし、右側のフィルタを見たい条件に合わせてください
 
    .. figure:: ./images/specify_sku.png
       :scale: 40%
+      :alt: Google Cloud の料金レポートで期間と SKU のグループ条件を指定する画面
 
 上記は先月 2024 年 11 月分の筆者の resonite 用プロジェクトのレポートを表示したところです。
-グループ条件に **SKU** を指定すると、どのリソースにいくら掛かったのかが詳細にわかります。
+グループ条件に **SKU** を指定すると、どのリソースにいくら掛かったのかが詳細にわかります
 
    .. figure:: ./images/sku_costs.png
       :scale: 40%
+      :alt: CPU、ディスク、メモリごとの SKU 別料金内訳
 
 上から順番に、CPU、ディスク、メモリの料金となっています
 
@@ -54,6 +57,7 @@
 
 .. figure:: ./images/Costs_for_November_2024.png
    :scale: 40%
+   :alt: resonite 用プロジェクトの2024年11月の料金レポート
 
 マシンタイプを変更してみよう
 ============================
@@ -75,12 +79,13 @@
 :command:`echo ${MACHINE_TYPE}` を打つと **t2d-standard-2** が表示されます。
 これは :command:`env-headless-server.bash` の中で指定しています
 
-**t2d-standard-2** は `Tau T2D マシンシリーズ <https://cloud.google.com/compute/docs/general-purpose-machines?hl=ja#t2d_machines>`__ によると「基本周波数 2.45 GHz、有効周波数 2.8 GHz、最大ブースト周波数 3.5 GHz の第 3 世代の AMD EPYC Milan プロセッサ」とのことです。
+**t2d-standard-2** は `Tau T2D マシンシリーズ <https://cloud.google.com/compute/docs/general-purpose-machines?hl=ja#t2d_machines>`__ によると「基本周波数 2.45 GHz、有効周波数 2.8 GHz、最大ブースト周波数 3.5 GHz の第 3 世代の AMD EPYC Milan プロセッサ」とのことです
 
 **t2d-standard-2** は 2CPU、8GB メモリのインスタンスで以下のような意味があります
 
     :t2d: Tau T2D マシンシリーズ
-    :standard: CPU 数とメモリ構成のパターン。CPU 数が 2 の場合はメモリが 8GB
+    :standard: CPU 数とメモリ構成のパターン。
+               CPU 数が 2 の場合はメモリが 8GB
     :2: CPU 数が 2つであることを示している
 
 2023 年 10 月 resonite リリース当初から `ボドゲ喫茶かっこう <https://x.com/Hamadori_vrq/status/1711211032612569201>`__ で負荷を見ながらマシンタイプを変更し、価格面と性能面のバランスを取り模索した結果、採用に至ったのが **t2d-standard-2** です(1年以上前の話なので、今ではもっといいマシンタイプがあるはず)
@@ -89,20 +94,22 @@
 
    .. figure:: ./images/kakko2023-10-31.png
       :scale: 20%
+      :alt: 2023年10月の GCE インスタンスの CPU 負荷とメモリ使用率
 
 2台とも10人前後参加していたと思われますが、CPU 負荷は 60% 程度、メモリ使用率 80% 程度(6.4GB)であることがわかります。
 次の画像は、2024年8月に .NET8 版がリリースされた時のモニタリング結果です
 
    .. figure:: ./images/kakko2024-08-06dotnet8.png
       :scale: 20%
+      :alt: 2024年8月の .NET8 版 resonite の CPU 負荷とメモリ使用率
 
 .NET8 版が、CPU 負荷 40% 程度、メモリ使用率 40% 程度でかなり負荷が下がったことがわかります（現行の .NET9 版も同様です）
 
 上記より、 ヘッドレスサーバ_ に重い処理をさせるのでなければ、10数人を 2CPU、メモリ8GB程度で十分さばけることがわかっています。
 もし、 ヘッドレスサーバ_ に重い処理をさせたければ、より高性能なマシンタイプに変更すると良いでしょう。
-resonite_ は並列処理が苦手で CPU クロックが高い方が有利と聞いたことがあります。
+resonite_ は並列処理が苦手で CPU クロックが高い方が有利と聞いたことがあります
 
-筆者が、検討しているマシンタイプは以下の通りです。
+筆者が、検討しているマシンタイプは以下の通りです
 
 .. list-table::
    :header-rows: 1
@@ -171,12 +178,12 @@ resonite_ は並列処理が苦手で CPU クロックが高い方が有利と�
 ----------------------
 
 比較的安めの n2 や n2d を入れていない理由は2023年末の時点では、たびたび Google Cloud のリソース不足で起動できないことがあった為です。
-スケジュールしている場合、外出していたりして即時対応ができないこともあるので避けています。
+スケジュールしている場合、外出していたりして即時対応ができないこともあるので避けています
 
 リソース不足になる理由は、どちらのマシンタイプも長時間起動する場合、月額割引が大きいため、スケーリングさせるサービスで多用されているからだと考えられます
 
 以上
 
-:ref:`明日の記事 <explanation_of_setup_config>` へ続きます。
+:ref:`明日の記事 <explanation_of_setup_config>` へ続きます
 
 .. include:: /contents/include_files/resonite_headless_link.txt

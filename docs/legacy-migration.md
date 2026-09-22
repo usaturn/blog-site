@@ -15,6 +15,7 @@ MaatLog 0.4.0 と現在のビルド環境を使用し、旧リポジトリの開
 | アドベントカレンダー説明 | 1 | `contents/2012/at_the_beginning.rst`。日付を推測せず補助ページのまま保持、toctree に追加 |
 | 古い記事への注意書き | 1 | `contents/2012/warning.rst`。include 専用として単独ビルドから除外し、不要な `:orphan:` を除去 |
 | 記事内画像 | 66 | 年別の画像ディレクトリを保持。未参照画像も原稿用資産として保持 |
+| 配信用の派生画像 | 7 | `contents/2016/images/kiban/preview/`。基板写真の原本から長辺1600px以下の WebP を追加 |
 | 添付・include 用ファイル | 7 | 下記一覧。バイト単位で原本と一致 |
 | ロゴ・アイコン | 2 | `source/_static/usaturn_logo.png` と `usaturn_icon.png`。ヘッダー、favicon、著者プロフィールに使用 |
 | プロフィール | 1 | `source/about.rst` と `maatlog_author_profiles`。旧肩書きを維持し、Twitter を X 表記へ更新、GitHub と記事の主題を追加 |
@@ -35,27 +36,41 @@ MaatLog 0.4.0 と現在のビルド環境を使用し、旧リポジトリの開
 旧 `images/` には上記 2 画像のみがあり、独立したバナー画像はない。
 旧 `_static/custom.css` のメタデータ隠蔽は現在の MaatLog では不要で、本文の正当な field-list を消す危険もあるため移植しない。
 旧テーマ依存の背景色・文字色も標準テーマと干渉するため移植しない。独自 CSS は追加していない。
-旧 `conf.py` の拡張のうち、現行構成で使用するのは `maatlog` のみである。
-旧サイトでコードブロックのコピーボタンを提供していた `sphinx_copybutton` は移植しておらず、現行構成ではそのボタンを提供しない。
+旧 `conf.py` の拡張のうち、現行構成では `maatlog` と `sphinx_copybutton` を使用する。
+コードブロックのコピーボタンはレビュー対応で復元し、`sphinx-copybutton 0.5.2` を `uv.lock` に固定した。
 `column` ディレクティブ、旧 `_templates/layout.html` の Universal Analytics も移植しない。
 `.devcontainer/`、Makefile、pyproject.toml、uv.lock、旧スクリプト、CLAUDE.md、.mcp.json は対象外。
 現行の疎通確認記事 `posts/hello.rst` は実記事への置換に伴い削除した。
 
 ## RST とリンクの調整
 
-- 本文の句点・改行、インライン記法の空白、見出し幅に `wabun-rst-ulint` の自動整形を適用した。句点・改行には検査漏れが残っている（検証記録を参照）
+- 本文の句点・改行、インライン記法の空白、見出し幅を `wabun-rst-ulint` の規約に合わせた。句点・改行の検査漏れは段落単位の追加検査で補い、コード例と原稿の構造を維持した
 - 相対画像参照、`:ref:`、toctree、literalinclude、download を維持した
 - pyhack、pyhackcon、Secret Manager の埋め込み参照に不足していた `_` を補い、誤ったローカルリンク 3 件を修正した
 - サクラエディタの公式サイト・ヘルプ・ダウンロード先を現行の公式サイト／GitHub Releases へ更新した
 - Python 2.7.3 のリンクを同じバージョンの公式リリースページへ更新した
 - Claude Code CLI の参照先を現行の `cli-reference` へ更新した
 - 過去記事の手順や公開日時は現在の内容に書き換えていない
+- 実際に表示する記事画像61箇所に内容を表す代替テキストを設定した。RST の記法を説明するコード例内の画像ディレクティブは変更していない
+
+`基板覚書` は配信用 WebP を表示し、画像をクリックすると原寸 JPEG を開く。
+原本 JPEG は既存の場所に残し、`source/_extra/_images/` の相対シンボリックリンクを `html_extra_path` でコピーして旧 `/_images/*.jpg` の URL も保つ。
+派生画像は原本を Pillow の LANCZOS で長辺1600px以下に縮小し、WebP の quality=80、method=6 で生成した。
+記事画像7枚の合計は15,358,264 bytesから569,076 bytesとなり、著者アイコンを含めたページの画像合計は736,124 bytesである。
+原本と添付ファイルのバイト一致は維持しており、追加の派生画像は原本一致の対象に含めない。
 
 ## 記事一覧
 
 公開パスは表の docname に `.html` を付けた旧形式を保持する。
 Cloudflare Pages は `.html` 付き URL を拡張子なしへリダイレクトする。
+生成する内部リンク、canonical URL、Atom の記事 URL は `html_link_suffix = ""` で拡張子なしへ揃え、トップの canonical は `/` とする。
 元記事の公開日時に従うため、ディレクトリが `2024` の uv 記事もアーカイブ上は `2025-01` に現れる。
+
+旧ラベルを使う分類 URL は `source/_extra/_redirects` により現行の分類 ID へ301転送する。
+たとえば `/blog/tag/備忘録/` は `/blog/tag/memo`、`/blog/category/駄文/` は `/blog/category/misc` へ転送する。末尾スラッシュなしと `.html` 付きの形式も対応する。
+`/blog/archive/` は全記事一覧の `/blog` へ301転送する。
+旧年アーカイブは `source/blog/{2012,2016,2024,2025}.rst` に年ごとの記事一覧を保持し、`/blog/2016/` のような旧 URL は Pages の308で `/blog/2016` へ誘導する。
+年別一覧の所属はディレクトリ名でなく公開日時を基準とし、記事数は順に14・6・12・2件である。
 
 | docname | 公開日時 | 記事 |
 |---|---|---|
@@ -98,8 +113,12 @@ Cloudflare Pages は `.html` 付き URL を拡張子なしへリダイレクト�
 
 - `uv run sphinx-build -b html -W --keep-going -n -E source _build/html`: warning / error なし
 - `wabun-rst-ulint` の `inline-spacing` / `heading-width`: 違反なし
-- `wabun-rst-ulint 0.0.1` の `sentence-breaks`: 終了コード 0。ただし、インラインリンクを含む行以降が検査されないケースを確認した。`contents/2016/start_nspawn_on_gentoo.rst` の「はじめに」には 1 行に複数文が残っており、全体の句点・改行の規約適合は確認できていない
-- 生成 HTML 84 ページの内部リンク・画像・スクリプト・CSS・アンカー 6,529 件: 参照先の欠落なし
+- `wabun-rst-ulint 0.0.1` の `sentence-breaks`: 終了コード 0。同ツールはインラインリンクの後を取りこぼすため、Sphinx の段落を抽出し、インライン記法を保護した追加検査も行った
+- 生成 HTML 88 ページの内部リンク・画像・スクリプト・CSS・canonical・アンカー 7,725 件: 参照先の欠落なし
+- 66ルールの旧分類・全件アーカイブ転送: 期待する301と転送先の200を確認。年アーカイブと旧記事 `.html` の308→200も確認
+- コピーボタン: Chromium でコードブロックの内容とクリップボードへのコピー結果が一致
+- 修正したページを含む6ページを幅1440 / 390pxで確認。画像の欠落・ページの横スクロール・ブラウザ例外なし
+- 修正前後の367コードブロックが完全一致し、句点と空白を除く段落の本文、表、リスト、注記の構造を維持
 - ローカル Pages + Chromium: 全 34 記事、129 画像表示、4 ページのアーカイブから 34 記事へ到達、ZIP のバイト一致、旧 `.html` URL の 308、未存在 URL の 404 を確認
 - 幅 1440 / 390 px でトップ・プロフィール・各年代の代表記事 7 ページを確認。横スクロールなし、ブラウザ例外なし
 - `bash scripts/build.sh`: 本番と同一の手順でビルド成功
@@ -123,6 +142,9 @@ Cloudflare Pages は `.html` 付き URL を拡張子なしへリダイレクト�
 `usaturn.net/sample/01/` と `sample/02/` の元データは旧リポジトリに含まれていないため復元していない。
 
 ## 公開手順
+
+Cloudflare Pages のビルド失敗は [Issue #2](https://github.com/usaturn/blog-site/issues/2) で別途追跡する。
+今回のレビュー修正では原因調査や Pages の設定変更を行っていない。ローカルのビルド成功と、Pages 上のビルド成功は区別する。
 
 PR を手動でマージすると本番デプロイされる。自動マージは設定しない。
 本番公開後に `/`、`/blog`、`/blog/author/usaturn`、表中の主要記事、画像、ZIP ダウンロード、`/blog/atom.xml` を再確認する。

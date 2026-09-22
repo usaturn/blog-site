@@ -72,7 +72,7 @@ Appendix
 .. note:: reboot ができない対処
 
           ``--keep-unit`` オプションは machinectl コマンドで制御する為に必要だが使うと reboot コマンドを打つと shutdown されてしまう。
-          これを回避する為には対象のコンテナについては専用 Unit を書き machinectl を使わずに制御する。
+          これを回避する為には対象のコンテナについては専用 Unit を書き machinectl を使わずに制御する
 
 
 

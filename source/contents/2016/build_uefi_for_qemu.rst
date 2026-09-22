@@ -15,21 +15,20 @@ QEMU の為の UEFI ファームウェアのビルド手順
 
 概要
 ====
-仮想環境 KVM 上の VM で UEFI を利用したい場合は OSS の仮想マシン用 UEFI ファームウェア
-`OVMF.fd`_ を使用する
+仮想環境 KVM 上の VM で UEFI を利用したい場合は OSS の仮想マシン用 UEFI ファームウェア `OVMF.fd`_ を使用する
 
 Webで公開されている `OVMF.fd`_ は 2014/02/10 の物で大変古い上にファームウェアと NVRAM が分離していない為に不便である
 
-ファームウェアの **OVMF_CODE.fd** と NVRAM の **OVMF_VARS.fd** に分離可能な最新版を使う為に
-`GitHub の edk2 プロジェクトの最新版のソース <https://github.com/tianocore/edk2.git>`_ を
-clone してビルドする。
+ファームウェアの **OVMF_CODE.fd** と NVRAM の **OVMF_VARS.fd** に分離可能な最新版を使う為に `GitHub の edk2 プロジェクトの最新版のソース <https://github.com/tianocore/edk2.git>`_ を clone してビルドする
 
-下記は `Gentoo Linux <https://www.gentoo.org/>`_  の環境を使った手順である。
+下記は `Gentoo Linux <https://www.gentoo.org/>`_  の環境を使った手順である
 
 
 環境構築
 ========
-gcc をアップデート、その他必要なパッケージを導入する。 ::
+gcc をアップデート、その他必要なパッケージを導入する
+
+::
 
     emerge -uvt sys-devel/gcc
     gcc-config -l

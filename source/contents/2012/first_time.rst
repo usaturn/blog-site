@@ -60,16 +60,16 @@ A. Pythonの拡張モジュール **easy_installコマンド** をインスト�
 
 環境変数PATHの設定
 ------------------
-1. コントロールパネルより **システムとセキュリティ** を選択します。
-2. **システム** を選択します。
-3. **システムの詳細設定** を選択します。
-4. システムのプロパティが開くので、 **詳細設定** タブを選択します。
-5. 右下の **環境変数** を選択します。
+1. コントロールパネルより **システムとセキュリティ** を選択します
+2. **システム** を選択します
+3. **システムの詳細設定** を選択します
+4. システムのプロパティが開くので、 **詳細設定** タブを選択します
+5. 右下の **環境変数** を選択します
 6. 環境変数PATHにディレクトリを追加します
 
    A. 今Windowsにログインしているアカウントに **Admin権限が有る** 場合
 
-      * ユーザー環境変数(上側)の **新規** を選択します。
+      * ユーザー環境変数(上側)の **新規** を選択します
       * **新しいユーザー変数** に下記のように入力します
 
         :変数名: Path
@@ -77,13 +77,13 @@ A. Pythonの拡張モジュール **easy_installコマンド** をインスト�
 
    B. 今Windowsにログインしているアカウントに **Admin権限が無い** 場合
 
-      * システム環境変数(下側)の変数 **Path** を選択します。
+      * システム環境変数(下側)の変数 **Path** を選択します
       * **編集** を選択し下記のようにディレクトリ名を追加します
 
         :変数値: ``C:\Python27;C:\Python27\Scripts``
 
-7. 入力し終わったら全てのウィンドウを **OK** を押下して閉じて下さい。
-8. Windowsをリブートします。
+7. 入力し終わったら全てのウィンドウを **OK** を押下して閉じて下さい
+8. Windowsをリブートします
 9. コマンドプロンプトよりバージョンを確認します
 
     ::
@@ -120,14 +120,15 @@ Sphinxのインストール
       Finished processing dependencies for sphinx
 
 
-この手順では私がよく利用させて頂いている `@shkumagaiさん作 <https://twitter.com/shkumagai>`_ の `sphinxjp.themes.bizstyle <http://pypi.python.org/pypi/sphinxjp.themes.bizstyle/>`_ をSphinxとその関連パッケージを同時に入れています。
+この手順では私がよく利用させて頂いている `@shkumagaiさん作 <https://twitter.com/shkumagai>`_ の `sphinxjp.themes.bizstyle <http://pypi.python.org/pypi/sphinxjp.themes.bizstyle/>`_ をSphinxとその関連パッケージを同時に入れています
 
 
-さあ、これでSphinx環境が出来上がりました。明日はSphinxでドキュメントの作成を開始しましょう。
+さあ、これでSphinx環境が出来上がりました。
+明日はSphinxでドキュメントの作成を開始しましょう
 
-.. note:: 手軽にSphinxを始めたい場合は `@shimizukawaさん <https://twitter.com/shimizukawa>`_  が作成された `Windowsへのインストール(スタンドアロンインストール) <http://sphinx-users.jp/gettingstarted/install_windows_standalone.html>`_ が良いかもしれません。
+.. note:: 手軽にSphinxを始めたい場合は `@shimizukawaさん <https://twitter.com/shimizukawa>`_  が作成された `Windowsへのインストール(スタンドアロンインストール) <http://sphinx-users.jp/gettingstarted/install_windows_standalone.html>`_ が良いかもしれません
 
-.. note::  他に、 `@GoingMyWayNetさん <https://twitter.com/GoingMyWayNet>`_ の書かれた `Sphinx on windows (Admin権限なし版) <http://note.sicafe.net/sphinx_memo/installAtWinNoAdmin.html>`_ も非常に参考になります。
+.. note::  他に、 `@GoingMyWayNetさん <https://twitter.com/GoingMyWayNet>`_ の書かれた `Sphinx on windows (Admin権限なし版) <http://note.sicafe.net/sphinx_memo/installAtWinNoAdmin.html>`_ も非常に参考になります
 
 
-※ このアドベントカレンダーについては :ref:`at_the_beginning` を参照して下さい。
+※ このアドベントカレンダーについては :ref:`at_the_beginning` を参照して下さい

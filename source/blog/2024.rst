@@ -1,0 +1,20 @@
+:orphan:
+
+2024 年の記事
+=============
+
+.. toctree::
+   :maxdepth: 1
+
+   /contents/2024/about_operating_a_resonite_headless_server_on_gce_for_one_year
+   /contents/2024/explanation_of_setup_config
+   /contents/2024/check_the_price_and_choose_an_instance
+   /contents/2024/clone_a_headless_server_instance
+   /contents/2024/schedule_gce_instance
+   /contents/2024/update_a_resonite_headless_server_config
+   /contents/2024/access_a_headless_server_interactive_shell
+   /contents/2024/explaining_resonite_headless_server_on_compute_engine
+   /contents/2024/set_up_a_resonite_headless_server_on_compute_engine
+   /contents/2024/about_a_resonite_headless_server_on_compute_engine
+   /contents/2024/setup_mise
+   /contents/2024/pyhack_snow_mountain_camp

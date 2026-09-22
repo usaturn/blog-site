@@ -13,9 +13,7 @@ resonite ヘッドレスサーバを Google Cloud で建てるオススメ
 
 `(2枚目) Resonite Advent Calendar 2024 <https://adventar.org/calendars/10544>`__ 2日目の記事です
 
-この記事は resonite_ の
-`Headless Client(通称ヘッドレスサーバと呼ばれている為、以下ヘッドレスサーバと記載します) <https://wiki.resonite.com/Headless_Client>`__
-を動かすなら `Google Cloud`_ がオススメだよ、という内容です
+この記事は resonite_ の `Headless Client(通称ヘッドレスサーバと呼ばれている為、以下ヘッドレスサーバと記載します) <https://wiki.resonite.com/Headless_Client>`__ を動かすなら `Google Cloud`_ がオススメだよ、という内容です
 
 誰向けの記事？
 ==============

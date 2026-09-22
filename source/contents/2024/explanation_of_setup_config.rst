@@ -14,8 +14,7 @@ setup-config.yaml の解説
 `(2枚目) Resonite Advent Calendar 2024 <https://adventar.org/calendars/10544>`__ 10日目の記事です
 
 
-この記事では :ref:`set_up_a_resonite_headless_server_on_compute_engine` で ヘッドレスサーバ_ を構築する際に指定する元となる
-**setup-config.yaml** を生成するためのテンプレート **setup-config.yaml.template** について解説します
+この記事では :ref:`set_up_a_resonite_headless_server_on_compute_engine` で ヘッドレスサーバ_ を構築する際に指定する元となる **setup-config.yaml** を生成するためのテンプレート **setup-config.yaml.template** について解説します
 
 **setup-config.yaml** とは
 ==========================
@@ -32,8 +31,7 @@ personal-information.json （再掲） ::
         "HEADLESS_USER": "ヘッドレスサーバ用に作成した resonite ユーザ名"
     }
 
-**setup-config.yaml** は GCE インスタンスを作成するコマンド :command:`gcloud compute instances create` の引数として
-:command:`--metadata-from-file=user-data=${SETUP_RESONITE_HEADLESS_SERVER_SCRIPT}` のように指定しています
+**setup-config.yaml** は GCE インスタンスを作成するコマンド :command:`gcloud compute instances create` の引数として :command:`--metadata-from-file=user-data=${SETUP_RESONITE_HEADLESS_SERVER_SCRIPT}` のように指定しています
 
 `cloud-init <https://cloud-init.io/>`__ という仕組みを利用して GCE インスタンスの初回起動時にだけ **setup-config.yaml** の記述内容が実行されます
 

@@ -25,8 +25,11 @@ uv がビルド環境に無ければ自前で導入し、`pyproject.toml` の `r
 ## 執筆中のプレビュー
 
 ```
-uv run sphinx-autobuild source _build/html --host 0.0.0.0 --port 8000
+uv run sphinx-autobuild -D html_link_suffix=.html source _build/html --host 0.0.0.0 --port 8000
 ```
+
+執筆用サーバーは拡張子なしのパスを解決しないため、プレビューではリンクに `.html` を付ける。
+本番ビルドでは拡張子なしの URL を生成する。
 
 ## Pages としての配信確認
 

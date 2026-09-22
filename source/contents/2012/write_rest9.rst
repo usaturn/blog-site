@@ -38,7 +38,7 @@
 
     easy_install -U pillow
 
-  `pillowパッケージ <http://pypi.python.org/pypi/Pillow/>`_ がインストール出来たら imageディレクティブのオプションが使えるようになります。
+  `pillowパッケージ <http://pypi.python.org/pypi/Pillow/>`_ がインストール出来たら imageディレクティブのオプションが使えるようになります
 
   記述例::
 
@@ -47,16 +47,18 @@
            :align: left
            :target: http://sphinx-users.jp/
 
-  htmlこのように表示されます。
+  htmlこのように表示されます
 
   .. image:: /contents/2012/images/background.png
      :scale: 50
      :align: left
      :target: http://sphinx-users.jp/
+     :alt: Sphinx ユーザー会のサイトへリンクする画像の表示例
 
-  * **scale** は縮小、拡大をする時のオプションです。100が1/1スケールです。
-  * **target** リンク先を指定する事ができます。
+  * **scale** は縮小、拡大をする時のオプションです。
+    100が1/1スケールです
+  * **target** リンク先を指定する事ができます
 
-明日は索引(インデックス)について説明します。
+明日は索引(インデックス)について説明します
 
-※ このアドベントカレンダーについては :ref:`at_the_beginning` を参照して下さい。
+※ このアドベントカレンダーについては :ref:`at_the_beginning` を参照して下さい
