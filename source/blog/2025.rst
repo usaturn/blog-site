@@ -1,0 +1,10 @@
+:orphan:
+
+2025 年の記事
+=============
+
+.. toctree::
+   :maxdepth: 1
+
+   /contents/2025/How_to_use_claude_code
+   /contents/2024/setup_python_environment_using_uv

@@ -1,0 +1,14 @@
+:orphan:
+
+2016 年の記事
+=============
+
+.. toctree::
+   :maxdepth: 1
+
+   /contents/2016/manage_spawn_container
+   /contents/2016/start_nspawn_on_gentoo
+   /contents/2016/installing_gentoo_modernly
+   /contents/2016/about_kiban
+   /contents/2016/setting_libvirt_for_uefi
+   /contents/2016/build_uefi_for_qemu
